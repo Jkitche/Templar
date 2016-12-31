@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="templar.js"></script>
+</head>
+
+<body>
+
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    
+    <script>
+        $(".test").templar({
+            templateString: `
+                                <h2>userId: {{userId}}</h2>
+                                <h2>id: {{id}}</h2>
+                                <h2>title: {{title}}
+                                <h2>body: {{body}}</h2>
+                                <h2>object: {{object.test}}</h2>
+                            `,
+            remoteUrl: 'https://jsonplaceholder.typicode.com/posts/1'
+        });
+        
+        $(".test").trigger("templar:remote");
+    </script>
+</body>
+
+</html>
